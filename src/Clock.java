@@ -14,12 +14,31 @@ public class Clock {
 		//take colon to end of string and make it an integer
 		int minutes = Integer.parseInt(answer.substring(colonInd + 1, answer.length()));
 		//check that it came in correctly
-		//System.out.println("Hours: " + hours);
+	
+		//minutes = hours * 60 + minutes;
 		//System.out.println("Minutes: " + minutes);
+		String input = JOptionPane.showInputDialog(null, "how long is your event in minutes");
+		int time = Integer.parseInt(input);
 		
+		int hours1 = time/60;
+		minutes = time%60 + minutes;
 		
+		hours +=hours1;
 		
+	
+		if (minutes > 60) {
+			int remanderM = minutes - 60;
+			//need to add more to hours if minutes is greater than 60
+			hours++;
+			minutes = remanderM;
+		}
 		
+		if (hours > 12){
+			int remander = hours -12;
+			hours = remander;
+		}
+		
+		JOptionPane.showMessageDialog(null, hours + ":" + minutes);
 		
 	}
 }
